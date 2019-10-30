@@ -55,7 +55,7 @@ public class Classroom {
     }
 
     public Student[] getStudentsByScore() {
-
+//solution 1
 //        Map<Double, Student> sortedStudents = new TreeMap<>();
 //        for (Student student: this.students) {
 //            sortedStudents.put(student.getAverageExamScore(), student);
@@ -63,8 +63,14 @@ public class Classroom {
 //        Student[] result = sortedStudents.values().toArray(new Student[this.students.length]);
 //        return result;
 
-        Set<Student> sortedStudents = new TreeSet<>(Arrays.asList(this.students));
-        return sortedStudents.toArray(new Student[sortedStudents.size()]);
+        // solution2
+//        Set<Student> sortedStudents = new TreeSet<>(Arrays.asList(this.students));
+//        return sortedStudents.toArray(new Student[sortedStudents.size()]);
+
+        // Best!
+        Arrays.sort(this.students);
+        return this.students;
+
 
     }
 

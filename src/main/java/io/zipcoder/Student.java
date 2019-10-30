@@ -69,7 +69,7 @@ public class Student implements Comparable<Student>{
     }
 
     public int compareTo(Student student2) {
-        return (this.getAverageExamScore() < student2.getAverageExamScore()) ? -1 : (this.getAverageExamScore() == student2.getAverageExamScore()) ? 0 : 1;
+        return Double.compare(this.getAverageExamScore(),student2.getAverageExamScore());
     }
 
     public String toString() {
