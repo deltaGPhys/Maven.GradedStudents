@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Student{
+public class Student implements Comparable<Student>{
 
     private String firstName;
     private String lastName;
@@ -66,6 +66,10 @@ public class Student{
             sum += score;
         }
         return sum/this.examScores.size();
+    }
+
+    public int compareTo(Student student2) {
+        return (this.getAverageExamScore() < student2.getAverageExamScore()) ? -1 : (this.getAverageExamScore() == student2.getAverageExamScore()) ? 0 : 1;
     }
 
     public String toString() {

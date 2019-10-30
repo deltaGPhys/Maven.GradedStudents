@@ -56,12 +56,16 @@ public class Classroom {
 
     public Student[] getStudentsByScore() {
 
-        Map<Double, Student> sortedStudents = new TreeMap<>();
-        for (Student student: this.students) {
-            sortedStudents.put(student.getAverageExamScore(), student);
-        }
-        Student[] result = sortedStudents.values().toArray(new Student[this.students.length]);
-        return result;
+//        Map<Double, Student> sortedStudents = new TreeMap<>();
+//        for (Student student: this.students) {
+//            sortedStudents.put(student.getAverageExamScore(), student);
+//        }
+//        Student[] result = sortedStudents.values().toArray(new Student[this.students.length]);
+//        return result;
+
+        Set<Student> sortedStudents = new TreeSet<>(Arrays.asList(this.students));
+        return sortedStudents.toArray(new Student[sortedStudents.size()]);
+
     }
 
     public Map<Student,String> getGradeBook() {
@@ -74,13 +78,13 @@ public class Classroom {
 
         for (int i = 0; i<len; i++) {
             perc = (double)i/len;
-            if (perc > .9) {
+            if (perc >= .9) {
                 grade = "A";
-            } else if (perc > .7) {
+            } else if (perc >= .7) {
                 grade = "B";
-            } else if (perc > .5) {
+            } else if (perc >= .5) {
                 grade = "C";
-            } else if (perc > .1) {
+            } else if (perc >= .1) {
                 grade = "D";
             } else {
                 grade = "F";
